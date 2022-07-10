@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "english": "test",
+    "japanese": "テスト",
+    "chinese": "测试"
+  },
+  {
+    "id": "2",
+    "english": "test2",
+    "japanese": "テスト2",
+    "chinese": "测试2"
+  }
+]
