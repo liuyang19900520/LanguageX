@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct LanguageXApp: App {
     
-    @StateObject private var modelData = ModelData()
+    @StateObject private var modelData = WordModelData()
     
     
     var body: some Scene {

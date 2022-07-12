@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "english": "test",
+    "japanese": "テスト",
+    "chinese": "测试",
+    "inputType":"001",
+    "series":"test",
+    "episode":"01",
+    "isFavorite": true,
+  },
+  {
+    "id": 2,
+    "english": "test2",
+    "japanese": "テスト2",
+    "chinese": "测试2",
+    "inputType":"001",
+    "series":"test",
+    "episode":"01",
+    "isFavorite": true,
+
+  }
+]

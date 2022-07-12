@@ -8,47 +8,47 @@
 import SwiftUI
 
 struct WordCard: View {
-    
-    var image: String
-    var language: String
-    var word: String
-    var series: String
+    var word: Word
     
     var body: some View {
-        VStack {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-         
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(language)
-                        .font(.headline)
-                        .foregroundColor(.secondary)
-                    Text(word)
+        HStack {
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading){
+                    Text(word.english)
                         .font(.title)
                         .fontWeight(.black)
                         .foregroundColor(.primary)
                         .lineLimit(3)
-                    Text(series.uppercased())
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    Spacer()
                 }
-                .layoutPriority(100)
-         
-                Spacer()
+                Text(word.chinese)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .padding()
+                Text(word.japanese)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .padding()
             }
-            .padding()
-        }.overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-        )
-        .padding([.top, .horizontal])
+            
+            Spacer()
+            
+            if word.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
+        }
     }
 }
 
 struct WordCard_Previews: PreviewProvider {
+    static var words = WordModelData().words
+    
     static var previews: some View {
-        WordCard(image: "turtlerock", language: "English", word: "Test", series: "Friends-S01-01").previewDevice("iPhone XS Max");
+        Group {
+            WordCard(word: words[0])
+            WordCard(word: words[1])
+        }
+        .previewLayout(.fixed(width: 300, height: 200))
     }
 }

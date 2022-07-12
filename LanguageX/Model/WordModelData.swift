@@ -1,23 +1,25 @@
 //
-//  ModelData.swift
+//  WordModelData.swift
 //  LanguageX
 //
-//  Created by LiJiao on 2022/07/06.
+//  Created by LiJiao on 2022/07/12.
 //
 
 import Foundation
 import Combine
 
-final class ModelData: ObservableObject {
-    @Published var landmarks: [Landmark] = load("landmarkData.json")
+
+final class WordModelData: ObservableObject {
+    @Published  var words: [Word] = loadWord("wordsData.json")
+
 }
 
-func load<T: Decodable>(_ filename: String) -> T {
+func loadWord<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else {
-            fatalError("Couldn't find \(filename) in main bundle.")
+    else {
+        fatalError("Couldn't find \(filename) in main bundle.")
     }
 
     do {
@@ -33,3 +35,4 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
